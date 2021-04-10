@@ -57,5 +57,23 @@ public class DrugEntity {
 	public void setDiagnosisEntities(Set<DiagnosisEntity> diagnosisEntities) {
 		this.diagnosisEntities = diagnosisEntities;
 	}
+
+	@Override
+	public String toString() {
+		return "DrugEntity [drugId=" + drugId + ", drugName=" + drugName + ", drugDetail=" + drugDetail
+				+ ", diagnosisEntities=" + diagnosisEntities + "]";
+	}
+
+	public DrugEntity(Integer drugId, String drugName, String drugDetail, Set<DiagnosisEntity> diagnosisEntities) {
+		super();
+		this.drugId = drugId;
+		this.drugName = drugName;
+		this.drugDetail = drugDetail;
+		this.diagnosisEntities = diagnosisEntities;
+	}
+
+	public DrugEntity() {
+		super();
+	}
 	
 }

@@ -5,7 +5,7 @@ import java.util.List;
 import com.application.medapp.entity.RecordEntity;
 import com.application.medapp.model.Record;
 
-public interface MedicalRecordService {
+public interface RecordService {
 	
 	public List<RecordEntity> getAllRecords();
 	public void addRecord(Record record);

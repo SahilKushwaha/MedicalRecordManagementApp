@@ -6,6 +6,7 @@ import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -16,6 +17,8 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Transient;
+
+import com.sun.istack.NotNull;
 
 @Entity
 @Table(name = "patient_details",schema = "medicaldb")
@@ -49,7 +52,7 @@ public class RecordEntity {
 	@Column(name = "aadhar_number")
 	private String aadharNumber;
 	
-	@OneToOne(cascade = CascadeType.ALL)
+	@OneToOne(cascade = CascadeType.ALL ,fetch = FetchType.LAZY)
 	@JoinColumn(name = "medical_id", referencedColumnName = "medical_id")
 	private MedicalEntity medicalEntity;
 
@@ -139,6 +142,37 @@ public class RecordEntity {
 	}
 	public void setDiagnosisEntities(Set<DiagnosisEntity> diagnosisEntities) {
 		this.diagnosisEntities = diagnosisEntities;
+	}
+	@Override
+	public String toString() {
+		return "RecordEntity [patientId=" + patientId + ", firstName=" + firstName + ", midName=" + midName
+				+ ", lastName=" + lastName + ", gender=" + gender + ", age=" + age + ", dateOfBirth=" + dateOfBirth
+				+ ", address=" + address + ", phoneNumber=" + phoneNumber + ", isMedInsuranceAvailable="
+				+ isMedInsuranceAvailable + ", lastUpdated=" + lastUpdated + ", aadharNumber=" + aadharNumber
+				+ ", medicalEntity=" + medicalEntity + ", diagnosisEntities=" + diagnosisEntities + "]";
+	}
+	public RecordEntity(Integer patientId, String firstName, String midName, String lastName, String gender,
+			Integer age, String dateOfBirth, String address, String phoneNumber, String isMedInsuranceAvailable,
+			Date lastUpdated, String aadharNumber, MedicalEntity medicalEntity,
+			Set<DiagnosisEntity> diagnosisEntities) {
+		super();
+		this.patientId = patientId;
+		this.firstName = firstName;
+		this.midName = midName;
+		this.lastName = lastName;
+		this.gender = gender;
+		this.age = age;
+		this.dateOfBirth = dateOfBirth;
+		this.address = address;
+		this.phoneNumber = phoneNumber;
+		this.isMedInsuranceAvailable = isMedInsuranceAvailable;
+		this.lastUpdated = lastUpdated;
+		this.aadharNumber = aadharNumber;
+		this.medicalEntity = medicalEntity;
+		this.diagnosisEntities = diagnosisEntities;
+	}
+	public RecordEntity() {
+		super();
 	}
 	
 }

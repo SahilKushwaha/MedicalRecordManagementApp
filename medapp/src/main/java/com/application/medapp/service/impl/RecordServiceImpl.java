@@ -12,16 +12,22 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.application.medapp.entity.MedicalEntity;
 import com.application.medapp.entity.RecordEntity;
 import com.application.medapp.model.Record;
+import com.application.medapp.repository.MedicalRepository;
 import com.application.medapp.repository.RecordRepository;
-import com.application.medapp.service.MedicalRecordService;
+import com.application.medapp.service.MedicalService;
+import com.application.medapp.service.RecordService;
 
 @Service
-public class MedicalRecordServiceImpl implements MedicalRecordService {
+public class RecordServiceImpl implements RecordService {
 
 	@Autowired
 	private RecordRepository recordRepository;
+	
+	@Autowired
+	MedicalService medicalService;
 	
 	@Override
 	public List<RecordEntity> getAllRecords() {
@@ -47,6 +53,14 @@ public class MedicalRecordServiceImpl implements MedicalRecordService {
 		recordEntity.setAadharNumber(record.getAadharNumber());
 		Date date = new Date();
 		recordEntity.setLastUpdated(date);
+		MedicalEntity medicalEntity = null;
+		if(record.getMedical() == null) {
+			medicalEntity = new MedicalEntity();
+		}
+		else {
+			medicalEntity =	medicalService.addMedical(record.getMedical());
+		}
+		recordEntity.setMedicalEntity(medicalEntity);
 		recordRepository.saveAndFlush(recordEntity);
 	}
 

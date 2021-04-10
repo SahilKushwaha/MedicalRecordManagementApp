@@ -13,13 +13,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.application.medapp.entity.RecordEntity;
 import com.application.medapp.model.Record;
-import com.application.medapp.service.MedicalRecordService;
+import com.application.medapp.service.RecordService;
 
 @RestController
 public class MedController {
 	
 	@Autowired
-	private MedicalRecordService medicalRecordService;
+	private RecordService medicalRecordService;
 	
 	@GetMapping("/home")
 	public String homePage() {

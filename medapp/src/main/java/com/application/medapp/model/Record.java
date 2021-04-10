@@ -97,6 +97,34 @@ public class Record {
 	public void setMedical(Medical medical) {
 		this.medical = medical;
 	}
+	@Override
+	public String toString() {
+		return "Record [patientId=" + patientId + ", firstName=" + firstName + ", midName=" + midName + ", lastName="
+				+ lastName + ", gender=" + gender + ", age=" + age + ", dateOfBirth=" + dateOfBirth + ", address="
+				+ address + ", phoneNumber=" + phoneNumber + ", isMedInsuranceAvailable=" + isMedInsuranceAvailable
+				+ ", lastUpdated=" + lastUpdated + ", aadharNumber=" + aadharNumber + ", medical=" + medical + "]";
+	}
+	public Record(Integer patientId, String firstName, String midName, String lastName, String gender, Integer age,
+			String dateOfBirth, String address, String phoneNumber, String isMedInsuranceAvailable, Date lastUpdated,
+			String aadharNumber, Medical medical) {
+		super();
+		this.patientId = patientId;
+		this.firstName = firstName;
+		this.midName = midName;
+		this.lastName = lastName;
+		this.gender = gender;
+		this.age = age;
+		this.dateOfBirth = dateOfBirth;
+		this.address = address;
+		this.phoneNumber = phoneNumber;
+		this.isMedInsuranceAvailable = isMedInsuranceAvailable;
+		this.lastUpdated = lastUpdated;
+		this.aadharNumber = aadharNumber;
+		this.medical = medical;
+	}
+	public Record() {
+		super();
+	}
 	
 	
 }

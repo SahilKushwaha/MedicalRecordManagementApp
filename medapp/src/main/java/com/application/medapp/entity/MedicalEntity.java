@@ -75,6 +75,27 @@ public class MedicalEntity {
 	public void setRecordEntity(RecordEntity recordEntity) {
 		this.recordEntity = recordEntity;
 	}
+
+	@Override
+	public String toString() {
+		return "MedicalEntity [medicalId=" + medicalId + ", height=" + height + ", weight=" + weight + ", bloodGroup="
+				+ bloodGroup + ", eyeSight=" + eyeSight + ", recordEntity=" + recordEntity + "]";
+	}
+
+	public MedicalEntity(Integer medicalId, Double height, Double weight, String bloodGroup, String eyeSight,
+			RecordEntity recordEntity) {
+		super();
+		this.medicalId = medicalId;
+		this.height = height;
+		this.weight = weight;
+		this.bloodGroup = bloodGroup;
+		this.eyeSight = eyeSight;
+		this.recordEntity = recordEntity;
+	}
+
+	public MedicalEntity() {
+		super();
+	}
 	
 	
 

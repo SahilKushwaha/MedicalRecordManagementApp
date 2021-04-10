@@ -99,5 +99,29 @@ public class DiagnosisEntity {
 	public void setDrugEntities(Set<DrugEntity> drugEntities) {
 		this.drugEntities = drugEntities;
 	}
+
+	public DiagnosisEntity(Integer diagnosisId, Date diagnosisDate, String diagnosisCategory, String diagnosisDetail,
+			RecordEntity recordEntity, Set<ProgressEntity> progressEntities, Set<DrugEntity> drugEntities) {
+		super();
+		this.diagnosisId = diagnosisId;
+		this.diagnosisDate = diagnosisDate;
+		this.diagnosisCategory = diagnosisCategory;
+		this.diagnosisDetail = diagnosisDetail;
+		this.recordEntity = recordEntity;
+		this.progressEntities = progressEntities;
+		this.drugEntities = drugEntities;
+	}
+
+	public DiagnosisEntity() {
+		super();
+	}
+
+	@Override
+	public String toString() {
+		return "DiagnosisEntity [diagnosisId=" + diagnosisId + ", diagnosisDate=" + diagnosisDate
+				+ ", diagnosisCategory=" + diagnosisCategory + ", diagnosisDetail=" + diagnosisDetail
+				+ ", recordEntity=" + recordEntity + ", progressEntities=" + progressEntities + ", drugEntities="
+				+ drugEntities + "]";
+	}
 	
 }
